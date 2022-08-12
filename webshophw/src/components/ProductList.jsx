@@ -4,6 +4,8 @@ import '../App.css';
 import { fetchData } from '../fetch/fetchData';
 import { useState } from 'react';
 import ProductCard from './ProductCard';
+import Link from 'react-router-dom';
+
 
 export default function ProductList({products, onAdd}) {
 console.log(products)

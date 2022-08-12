@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Bucket from './pages/Bucket';
 import Footer from './components/Footer';
+import ItemDescription from './components/ItemDescription';
 
 function App() {
 
@@ -42,7 +43,7 @@ function App() {
         <Route path="/about" element={<div><img src='https://www.impactbnd.com/hubfs/blog-image-uploads/best-about-us-pages.jpg'/></div>} />
         <Route path="/contacts" element={<div><img src='https://sitechecker.pro/wp-content/uploads/2017/12/contact-us.png'/></div>} />
 
-        {/* <Route path="/item:id" element={<ItemDescription />} /> */}
+        <Route path="/item/:id" element={<ItemDescription />} />
       </Routes>
       <Footer/>
     </>
