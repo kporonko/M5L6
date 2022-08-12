@@ -2,14 +2,17 @@ import React from 'react'
 import {fetchDataById} from "../fetch/fetchData";
 import { useEffect, useState } from 'react';
 import {useParams} from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 
 
-export default function ItemDescription() {
+export default function ItemDescription({onAdd}) {
 
     const [itemDescription, setItemDescription] = useState({})
 
     const {id} = useParams()
+
+    const [obj, setObj] = useState({})
 
     useEffect(() => {
         const fetch = async () => {
@@ -19,6 +22,8 @@ export default function ItemDescription() {
 
             console.log(res)
             setItemDescription(res)
+            console.log(res.rating)
+            setObj(res.rating)
         }
         fetch();
 
@@ -27,15 +32,20 @@ export default function ItemDescription() {
 
   return (
     <div>
-      <img className='center' src={itemDescription.image} alt="" />
-      <div>
+      <img className='full-center' src={itemDescription.image} alt="" />
+      <div className='full-desc'>
         <h2>{itemDescription.title}</h2>
-        <div>{itemDescription.description}</div>
-        <div>{itemDescription.category}</div>
-        <div>{itemDescription.price}</div>        
-        <div>{itemDescription.rating.rate}</div>
+        <span>{itemDescription.description}</span>
+        <div>Category: {itemDescription.category}</div>
+        <div>Item rate: {obj.rate}</div>   
+        <div>Items left: {obj.count}</div>   
+        <div><strong>Price: {itemDescription.price}$</strong></div>   
       </div>
-
+      <div className='div-center-button'>
+        <Button onClick={() => onAdd(itemDescription)} className='button-center'>
+          Add To cart
+        </Button>
+      </div>
     </div>
   )
 }

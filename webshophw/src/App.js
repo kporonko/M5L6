@@ -43,7 +43,7 @@ function App() {
         <Route path="/about" element={<div><img src='https://www.impactbnd.com/hubfs/blog-image-uploads/best-about-us-pages.jpg'/></div>} />
         <Route path="/contacts" element={<div><img src='https://sitechecker.pro/wp-content/uploads/2017/12/contact-us.png'/></div>} />
 
-        <Route path="/item/:id" element={<ItemDescription />} />
+        <Route path="/item/:id" element={<ItemDescription onAdd={addToCart}/>} />
       </Routes>
       <Footer/>
     </>

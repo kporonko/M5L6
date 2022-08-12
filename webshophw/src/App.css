@@ -189,9 +189,44 @@ footer{
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
-.center{
+.full-center{
+  margin-top: 30px;
   display: block;
   margin: auto;
   padding: 20px;
   border: 1px solid black;
+}
+.full-desc{
+  max-width: 80%;
+  margin: auto;
+}
+.full-desc div{
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: center;
+}
+.full-desc h2{
+  margin-top: 20px;
+  text-align: center;
+}
+.full-desc span{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.div-center-button .button-center{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  background: green;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 0 0 30px 30px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.div-center-button{
+  display: flex;
+  justify-content: center;
 }
