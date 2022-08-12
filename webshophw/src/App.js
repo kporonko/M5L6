@@ -22,11 +22,15 @@ function App() {
       fetchProductsData();
   }, [])
 
+  const deleteOrder = (id) => {
+    setCart(cart.filter(order => order.id !== id));
+  }
 
   const addToCart = (product) => {
-    console.log(cart);
+    if (cart.find(item => item.id === product.id)) {
+      return;
+    }
     setCart([...cart, product]);
-    console.log(cart);
   }
 
   return (
@@ -34,7 +38,10 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home products={products} onAdd={addToCart}/>} />
-        <Route path="/bucket" element={<Bucket bucketProducts={cart}/>} />
+        <Route path="/bucket" element={<Bucket bucketProducts={cart} onDelete={deleteOrder}/>} />
+        <Route path="/about" element={<div><img src='https://www.impactbnd.com/hubfs/blog-image-uploads/best-about-us-pages.jpg'/></div>} />
+        <Route path="/contacts" element={<div><img src='https://sitechecker.pro/wp-content/uploads/2017/12/contact-us.png'/></div>} />
+
         {/* <Route path="/item:id" element={<ItemDescription />} /> */}
       </Routes>
       <Footer/>

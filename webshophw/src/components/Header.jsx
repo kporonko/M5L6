@@ -10,8 +10,8 @@ export default function Header() {
           </Link>
         </div>
         <ul>
-            <li>Abous Us</li>
-            <li>Contact Us</li>
+            <li><Link className='link' to={'/about'}>Abous Us</Link></li>
+            <li><Link className='link' to={'/contacts'}>Contact Us</Link></li>
             <li className='bucket-button'><Link className='link' to={'/bucket'}><FaShoppingCart/></Link></li>
         </ul>
   </div>

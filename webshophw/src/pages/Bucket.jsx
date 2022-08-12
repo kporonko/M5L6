@@ -1,7 +1,8 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 
-export default function Bucket({bucketProducts}) {
-  const price = bucketProducts.reduce((acc, product) => acc + product.price, 0)
+export default function Bucket({bucketProducts, onDelete}) {
+  const price = bucketProducts.reduce((acc, product) => acc + product.price, 0).toFixed(2)
   return (
     <div>
       <h1 className='center'>Bucket</h1>
@@ -13,6 +14,7 @@ export default function Bucket({bucketProducts}) {
             <h2>{product.title}</h2>
             <h4>{product.description}</h4>
             <b>{product.price}$</b>
+            <Button onClick={() => onDelete(product.id)} className='button-delete' variant='danger'>Delete</Button>
         </div>
       </div>
     )) : <div>Cart is empty</div>}
