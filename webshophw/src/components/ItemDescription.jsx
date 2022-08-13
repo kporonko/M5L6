@@ -1,12 +1,12 @@
 import React from 'react'
 import {fetchDataById} from "../fetch/fetchData";
 import { useEffect, useState } from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { Button } from 'react-bootstrap';
 
 
 
-export default function ItemDescription({onAdd}) {
+export default function ItemDescription({onAdd, onDelete}) {
 
     const [itemDescription, setItemDescription] = useState({})
 
@@ -41,11 +41,18 @@ export default function ItemDescription({onAdd}) {
         <div>Items left: {obj.count}</div>   
         <div><strong>Price: {itemDescription.price}$</strong></div>   
       </div>
-      <div className='div-center-button'>
-        <Button onClick={() => onAdd(itemDescription)} className='button-center'>
-          Add To cart
-        </Button>
-      </div>
+        <div className='div-center-button'>
+            <Button onClick={() => {
+                onDelete(itemDescription)
+            }} className='button-center red'>
+                <Link to={'/'}>Delete</Link>
+            </Button>
+        </div>
+          <div className='div-center-button'>
+              <Button onClick={() => onAdd(itemDescription)} className='button-center'>
+                Add To cart
+              </Button>
+          </div>
     </div>
   )
 }
